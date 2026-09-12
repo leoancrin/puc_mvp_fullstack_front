@@ -9,7 +9,7 @@ Este repositório tem por função apresentar o código desenvolvido para o fron
 
 ## Como acessar
 
-Para acessar basta abrir o arquivo index.html diretamente no seu navegador.
+Para acessar basta baixar e abrir o arquivo index.html diretamente no seu navegador.
 
 ### Como interagir com a API
 
