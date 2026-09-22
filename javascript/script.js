@@ -14,6 +14,7 @@ function escondeElementosAposCarregar(){
     });
 
     document.getElementById("div-botoes-crud").style.display = "none";
+    document.getElementById("texto_identificacao").style.display = "none";
     escondeFormulariosETabelas()
      
 }
@@ -25,9 +26,19 @@ function escondeFormulariosETabelas() {
     document.getElementById("tabela_tipos").style.display = "none";
 }
 
+function alteraTextoIdentificacao(texto){
+    txtIdentificacao = document.getElementById("texto_identificacao");
+    
+    txtIdentificacao.style.display = "block";
+    txtIdentificacao.innerText = texto;
+
+}
+
 function apresentarElementosCrudTipo(){
     flagFormulario = tipo 
     flagTabela = tipo;
+
+    alteraTextoIdentificacao("Tipos de itens")
 
     escondeFormulariosETabelas();
 
@@ -38,6 +49,8 @@ function apresentarElementosCrudTipo(){
 function apresentarElementosCrudItem(){
     flagFormulario = item;
     flagTabela = item;
+
+    alteraTextoIdentificacao("Itens colecionáveis")
 
     escondeFormulariosETabelas();
 
@@ -60,27 +73,31 @@ function escolheOpcaoPorTipoDeBotaoInicial(){
     if (botaoItensColecionaveis) botaoItensColecionaveis.addEventListener("click", apresentarElementosCrudItem);
 }
 
-function apresentaFormulario(){
+function apresentaFormulario(texto){
     escondeFormulariosETabelas();
 
     if (flagFormulario === tipo) {
-       document.getElementById("formulario_tipo_item").style.display = "inline"; 
+       document.getElementById("formulario_tipo_item").style.display = "inline";
+       alteraTextoIdentificacao(`Tipos de itens - ${texto}`)
     }
 
     if (flagFormulario === item) {
         document.getElementById("formulario_item_colecionavel").style.display = "block";
+        alteraTextoIdentificacao(`Itens colecionáveis - ${texto}`)
     }
 }
 
-function apresentaTabela(){
+function apresentaTabela(texto){
     escondeFormulariosETabelas();
 
     if (flagTabela === tipo) {
-       document.getElementById("tabela_tipos").style.display = "block"; 
+       document.getElementById("tabela_tipos").style.display = "block";
+       alteraTextoIdentificacao(`Tipos de itens - ${texto}`) 
     }
 
     if (flagTabela === item) {
         document.getElementById("tabela_itens").style.display = "block";
+        alteraTextoIdentificacao(`Itens colecionáveis - ${texto}`)
     }
 }
 
@@ -92,17 +109,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     escolheOpcaoPorTipoDeBotaoInicial();
 
-    botaoCadastrar = document.getElementById("botao-cadastrar");
-    botaoCadastrar.addEventListener("click", apresentaFormulario);
+    const botaoCadastrar = document.getElementById("botao-cadastrar");
+    botaoCadastrar.addEventListener("click", () => {apresentaFormulario("Cadastrar")});
 
-    botaoConsultar = document.getElementById("botao-consultar");
-    botaoConsultar.addEventListener("click", apresentaTabela);
+    const botaoConsultar = document.getElementById("botao-consultar");
+    botaoConsultar.addEventListener("click", () => {apresentaTabela("Consultar")});
 
-    botaoAlterar = document.getElementById("botao-alterar");
-    botaoAlterar.addEventListener("click", apresentaFormulario);
+    const botaoAlterar = document.getElementById("botao-alterar");
+    botaoAlterar.addEventListener("click", () => {apresentaFormulario("Alterar")});
 
-    botaoDeletar = document.getElementById("botao-deletar");
-    botaoDeletar.addEventListener("click", apresentaFormulario);
+    const botaoDeletar = document.getElementById("botao-deletar");
+    botaoDeletar.addEventListener("click", () => {apresentaFormulario("Deletar")});
 
 });
 
