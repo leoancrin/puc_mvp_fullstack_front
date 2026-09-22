@@ -1,10 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title>Página inicial do aplicativo</title>
 
+        <script defer src="../javascript/script.js" ></script>
     </head>
-    <body>
 
+    <body>
+        <header>
+            <h1>Cadastro de itens colecionáveis</h1>
+            <h2>Escolha qual opção você deseja usar!</h2>
+        </header>
+        <main>
+            <div>
+                <button onclick="apresentarElementosCrudTipo()">Tipos de itens</button>
+                <button onclick="apresentarElementosCrudItem()">Itens colecionáveis</button>
+            </div>
+
+            <div class="botoes-CRUD"  id="div-botoes-crud-item">
+                <button id="botao-cadastrar-item">Cadastrar item</button>
+                <button id="botao-consultar-item" >Consultar item</button>
+                <button id="botao-alterar-item" >Alterar item</button>
+                <button id="botao-deletar-item">Deletar item</button>                 
+            </div>
+
+            <div class="botoes-CRUD" id="div-botoes-crud-tipo">
+                <button id="botao-cadastrar-tipo">Cadastrar tipo</button>
+                <button id="botao-consultar-tipo">Consultar tipo</button>
+                <button id="botao-alterar-tipo">Alterar tipo</button>
+                <button id="botao-deletar-tipo">Deletar tipo</button>                 
+            </div>
+
+            <div id="formularios">
+                <form id="formulario_tipo_item">
+                    <label for="tipo_do_item">Tipo do item</label>
+                    <input type="text" id="tipo_do_item" name="tipo_do_item" value="Livro">
+
+                    <input type="submit" value="Cadastrar">
+                </form>
+
+                <form id="formulario_item_colecionavel">
+                    <label for="item_colecionavel">Nome do item</label>
+                    <input type="text" id="nome_do_item" name="nome_do_item" value="Moby Dick">
+
+                    <label for="item_colecionavel">Tipo do item</label>
+                    <input type="text" id="tipo_do_item_colecionavel" name="tipo_do_item_colecionavel" value="Livro">
+                    
+                    <label for="item_colecionavel">Valor</label>
+                    <input type="number" id="valor_do_item" name="valor_do_item" value="10.0">
+
+                    <input type="submit" value="Cadastrar">
+                </form>
+            </div>
+
+            <section id="tabelas">
+                <table id="tabela_itens">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome do item</th>
+                            <th>Tipo de item</th>
+                            <th>Valor do item</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+                <table id="tabela_tipos">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tipo de item</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer>
+            <h3>Site desenvolvido por Leonardo</h3>
+            <address>
+                <a href="https://github.com/leoancrin">Contato</a>
+            </address>
+        </footer>
     </body>
 </html>
