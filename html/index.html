@@ -16,22 +16,15 @@
         </header>
         <main>
             <div>
-                <button onclick="apresentarElementosCrudTipo()">Tipos de itens</button>
-                <button onclick="apresentarElementosCrudItem()">Itens colecionáveis</button>
+                <button id="botao-tipos-itens">Tipos de itens</button>
+                <button id="botao-itens-colecionaveis">Itens colecionáveis</button>
             </div>
 
-            <div class="botoes-CRUD"  id="div-botoes-crud-item">
-                <button id="botao-cadastrar-item">Cadastrar item</button>
-                <button id="botao-consultar-item" >Consultar item</button>
-                <button id="botao-alterar-item" >Alterar item</button>
-                <button id="botao-deletar-item">Deletar item</button>                 
-            </div>
-
-            <div class="botoes-CRUD" id="div-botoes-crud-tipo">
-                <button id="botao-cadastrar-tipo">Cadastrar tipo</button>
-                <button id="botao-consultar-tipo">Consultar tipo</button>
-                <button id="botao-alterar-tipo">Alterar tipo</button>
-                <button id="botao-deletar-tipo">Deletar tipo</button>                 
+            <div class="botoes-CRUD"  id="div-botoes-crud">
+                <button id="botao-cadastrar">Cadastrar item</button>
+                <button id="botao-consultar">Consultar item</button>
+                <button id="botao-alterar">Alterar item</button>
+                <button id="botao-deletar">Deletar item</button>                 
             </div>
 
             <div id="formularios">
@@ -39,7 +32,7 @@
                     <label for="tipo_do_item">Tipo do item</label>
                     <input type="text" id="tipo_do_item" name="tipo_do_item" value="Livro">
 
-                    <input type="submit" value="Cadastrar">
+                    <input type="submit" value="Enviar">
                 </form>
 
                 <form id="formulario_item_colecionavel">
@@ -52,7 +45,7 @@
                     <label for="item_colecionavel">Valor</label>
                     <input type="number" id="valor_do_item" name="valor_do_item" value="10.0">
 
-                    <input type="submit" value="Cadastrar">
+                    <input type="submit" value="Enviar">
                 </form>
             </div>
 
@@ -87,7 +80,7 @@
         <footer>
             <h3>Site desenvolvido por Leonardo</h3>
             <address>
-                <a href="https://github.com/leoancrin">Contato</a>
+                <a href="https://github.com/leoancrin" target="_blank" rel="noopener noreferrer">Contato</a>
             </address>
         </footer>
     </body>
