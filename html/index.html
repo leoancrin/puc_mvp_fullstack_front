@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
         <title>Página inicial do aplicativo</title>
 
-        <script defer src="../javascript/script.js" ></script>
+        <script defer type="module" src="../javascript/script.js" ></script>
     </head>
 
     <body>
@@ -25,6 +25,7 @@
             <div class="botoes-CRUD"  id="div-botoes-crud">
                 <button id="botao-cadastrar">Cadastrar item</button>
                 <button id="botao-consultar">Consultar item</button>
+                <button id="botao-consultar-especifico">Consultar item específico</button>
                 <button id="botao-alterar">Alterar item</button>
                 <button id="botao-deletar">Deletar item</button>                 
             </div>
@@ -49,6 +50,13 @@
 
                     <input type="submit" value="Enviar">
                 </form>
+
+                <form id="formulario_tipo_itens_por_tipo">
+                    <label for="tipo_do_item">Tipo do item</label>
+                    <input type="text" id="tipo_itens_colecionaveis" name="tipo_itens_colecionaveis" value="Livro">
+
+                    <input type="submit" value="Enviar">
+                </form>
             </div>
 
             <section id="tabelas">
@@ -61,7 +69,7 @@
                             <th>Valor do item</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody_tabela_itens">
 
                     </tbody>
                 </table>
@@ -73,7 +81,7 @@
                             <th>Tipo de item</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody_tabela_tipos">
                         
                     </tbody>
                 </table>
