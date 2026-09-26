@@ -28,7 +28,7 @@ A API responsável pelo back-end se encontra no repositório `https://github.com
 ### Opcional
 
 O código também foi estruturado para rodar via LiveServer. Nesse caso abra o index.html e descomente o trecho
-> <!-- <script defer type="module" src="../javascript/script.js"></script> -->
+> <script defer type="module" src="../javascript/script.js"></script>
 e comente o trecho
 > <script src="../script_mvp.js"></script>
 
