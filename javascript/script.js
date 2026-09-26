@@ -139,8 +139,6 @@ function apresentaFormularioItemPorTipo(texto) {
     }
 }
 
-
-
 function apresentaFormularioParaCadaBotaoDeAcao() {
 
     const botaoCadastrar = document.getElementById("botao-cadastrar");
