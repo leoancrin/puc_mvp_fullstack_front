@@ -9,10 +9,6 @@ Este repositório tem por função apresentar o código desenvolvido para o fron
 
 ## Como acessar
 
-Caso queira ver o html inteiro basta abrir o arquivo no seu navegador
-
-### Como interagir dinamicamente
-
 Para interagir com o html basta abrir o arquivo index.html, no diretório html/index.html.  
 Outras formas de execução basta ler o trecho **Opcional**
 
@@ -32,6 +28,8 @@ O código também foi estruturado para rodar via LiveServer. Nesse caso abra o i
 > <script defer type="module" src="../javascript/script.js"></script>
 e comente o trecho
 > <script src="../script_mvp.js"></script>
+
+Em seguida abra o arquivo via LiveServer ou outra forma de servidor local.
 
 
 
