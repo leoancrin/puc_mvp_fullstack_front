@@ -1,0 +1,78 @@
+.encode-sans-semi-expanded-regular {
+  font-family: "Encode Sans Semi Expanded", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.encode-sans-semi-expanded-medium {
+  font-family: "Encode Sans Semi Expanded", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.encode-sans-semi-expanded-semibold {
+  font-family: "Encode Sans Semi Expanded", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  background-color: #edf6f9;
+  text-align: center;
+  font-family: "Encode Sans Semi Expanded", sans-serif;
+}
+
+header {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 75px;
+  margin-bottom: 15px;
+  padding: 5px;
+  background-color: #83c5be;
+  text-align: center;
+}
+
+button {
+  color: #006d77;
+  font-weight: bold;
+  border: 2px solid #006d77;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px;
+}
+
+button:hover {
+  color: #92140c;
+  border: 2px solid #92140c;
+}
+
+footer {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #006d77;
+  text-align: center;
+  padding-top: 5px;
+}
+
+footer h3 {
+  color: #F5F5F5;
+}
+
+footer address {
+    padding-bottom: 10px;
+}
+
+footer address a,
+footer address a:visited,
+footer address a:link,
+footer address a:hover,
+footer address a:active {
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  color: #F5F5F5;
+}
