@@ -7,7 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Página inicial do aplicativo</title>
 
+    <link rel="stylesheet" href="../css/style.css">
+
     <script defer type="module" src="../javascript/script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,69 +23,69 @@
     </header>
     <main>
         <div>
-            <button id="botao-tipos-itens">Tipos de itens</button>
-            <button id="botao-itens-colecionaveis">Itens colecionáveis</button>
+            <button type="button" id="botao-tipos-itens">Tipos de itens</button>
+            <button type="button" id="botao-itens-colecionaveis">Itens colecionáveis</button>
         </div>
 
         <h3 id="texto_identificacao">Texto</h3>
 
         <div class="botoes-CRUD" id="div-botoes-crud">
-            <button id="botao-cadastrar">Cadastrar item</button>
-            <button id="botao-consultar">Consultar item</button>
-            <button id="botao-consultar-especifico">Consultar item específico</button>
-            <button id="botao-alterar">Alterar item</button>
-            <button id="botao-deletar">Deletar item</button>
+            <button type="button" id="botao-cadastrar">Cadastrar item</button>
+            <button type="button" id="botao-consultar">Consultar item</button>
+            <button type="button" id="botao-consultar-especifico">Consultar item específico</button>
+            <button type="button" id="botao-alterar">Alterar item</button>
+            <button type="button" id="botao-deletar">Deletar item</button>
         </div>
 
         <div id="formularios">
             <form id="formulario_tipo_item">
                 <label for="tipo_do_item">Tipo do item</label>
-                <input type="text" id="tipo_do_item" name="tipo_item" value="Livro">
+                <input type="text" id="tipo_do_item" name="tipo_item" placeholder="Livro">
 
                 <input type="submit" value="Enviar">
             </form>
 
             <form id="formulario_item_colecionavel">
                 <label for="item_colecionavel">Nome do item</label>
-                <input type="text" id="nome_do_item" name="nome_item" value="Moby Dick">
+                <input type="text" id="nome_do_item" name="nome_item" placeholder="Moby Dick">
 
                 <label for="item_colecionavel">Tipo do item</label>
-                <input type="text" id="tipo_do_item_colecionavel" name="tipo" value="Livro">
+                <input type="text" id="tipo_do_item_colecionavel" name="tipo" placeholder="Livro">
 
                 <label for="item_colecionavel">Valor</label>
-                <input type="number" id="valor_do_item" name="valor_item" value="10.0">
+                <input type="number" id="valor_do_item" step="any" name="valor_item" placeholder="10.0">
 
                 <input type="submit" value="Enviar">
             </form>
 
             <form id="formulario_itens_por_tipo">
                 <label for="tipo_do_item">Tipo do item</label>
-                <input type="text" id="tipo_itens_colecionaveis" name="tipo_itens_colecionaveis" value="Livro">
+                <input type="text" id="tipo_itens_colecionaveis" name="tipo_itens_colecionaveis" placeholder="Livro">
 
                 <input type="submit" value="Enviar">
             </form>
 
             <form id="formulario_tipo_item_altera_deleta">
                 <label for="id_tipo">ID</label>
-                <input type="number" id="id_tipo" name="id_tipo" value="1111">
+                <input type="number" id="id_tipo" name="id_tipo" placeholder="11">
                 <label for="tipo_do_item">Tipo do item</label>
-                <input type="text" id="tipo_do_item" name="tipo_item" value="Livro">
+                <input type="text" id="tipo_do_item" name="tipo_item" placeholder="Livro">
 
                 <input type="submit" value="Enviar">
             </form>
 
             <form id="formulario_item_colecionavel_altera_deleta">
                 <label for="id_item_colecionavel">ID do item</label>
-                <input type="number" id="id_do_item" name="id_item" value="1111">
+                <input type="number" id="id_do_item" name="id_item" placeholder="11">
 
                 <label for="item_colecionavel">Nome do item</label>
-                <input type="text" id="nome_do_item" name="nome_item" value="Moby Dick">
+                <input type="text" id="nome_do_item" name="nome_item" placeholder="Moby Dick">
 
                 <label for="item_colecionavel">Tipo do item</label>
-                <input type="text" id="tipo_do_item_colecionavel" name="tipo" value="Livro">
+                <input type="text" id="tipo_do_item_colecionavel" name="tipo" placeholder="Livro">
 
                 <label for="item_colecionavel">Valor</label>
-                <input type="number" id="valor_do_item" name="valor_item" value="10.0">
+                <input type="number" id="valor_do_item" step="any" name="valor_item" placeholder="10.0">
 
                 <input type="submit" value="Enviar">
             </form>
