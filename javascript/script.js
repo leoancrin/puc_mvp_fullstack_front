@@ -10,8 +10,12 @@ let flagTabela = "";
 let flagAcao = "";
 
 // imports
-import { apiConsultarItens, apiConsultarTipos } from './api.js';
-import { apiCadastrarItens, apiCadastrarTipos } from './api.js';
+import {
+    apiConsultarItens, apiConsultarTipos, apiConsultarItensTipoEspecifico,
+    apiCadastrarItens, apiCadastrarTipos,
+    apiDeletarItens, apiDeletarTipos,
+    apiAlterarItens, apiAlterarTipos
+} from './api.js';
 
 function escondeElementosAposCarregar() {
     const tabelas = document.getElementsByTagName("table");
@@ -133,16 +137,36 @@ async function apresentaTabela(texto) {
         document.getElementById("tabela_tipos").style.display = "block";
         alteraTextoIdentificacao(`Tipos de itens - ${texto}`);
 
-        const lista = await apiConsultarTipos();
-        renderizaTabelaTipos(lista);
+        try {
+            const lista = await apiConsultarTipos();
+            renderizaTabelaTipos(lista);
+
+        } catch (erro) {
+            alert(erro.message);
+        }
+
     }
 
     if (flagTabela === item) {
         document.getElementById("tabela_itens").style.display = "block";
         alteraTextoIdentificacao(`Itens colecionáveis - ${texto}`);
 
-        const lista = await apiConsultarItens();
-        renderizaTabelaItens(lista);
+        try {
+            const lista = await apiConsultarItens();
+            renderizaTabelaItens(lista);
+        } catch (erro) {
+            alert(erro.message);
+        }
+    }
+}
+
+function apresentaFormularioItemPorTipo(texto) {
+    escondeFormulariosETabelas()
+
+    if (flagFormulario === item) {
+        flagTabela = item;
+        document.getElementById("formulario_itens_por_tipo").style.display = "inline"
+        alteraTextoIdentificacao(`Tipos de itens - ${texto}`);
     }
 }
 
@@ -227,11 +251,7 @@ function apresentaFormularioParaCadaBotaoDeAcao() {
     botaoDeletar.addEventListener("click", () => { apresentaFormularioAlteraDeleta("Deletar", deletar) });
 
     const botaoConsultarEspecifico = document.getElementById("botao-consultar-especifico");
-    botaoConsultarEspecifico.addEventListener("click", () => {
-        alteraTextoIdentificacao("Itens colecionáveis - Consultar item por tipo")
-        escondeFormulariosETabelas();
-        document.getElementById("formulario_itens_por_tipo").style.display = "inline";
-    });
+    botaoConsultarEspecifico.addEventListener("click", () => { apresentaFormularioItemPorTipo("Consultar por tipo") });
 }
 
 function adicionaEventosParaOsFormularios() {
@@ -275,38 +295,85 @@ async function submitFormCadastro(event) {
 async function submitFormItemPorTipo(event) {
     event.preventDefault();
     const dados = Object.fromEntries(new FormData(event.target).entries());
+    const path = dados.tipo_itens_colecionaveis
+
+    try {
+        if (flagFormulario === item) {
+            const resposta = await apiConsultarItensTipoEspecifico(path);
+            document.getElementById("tabela_itens").style.display = "block";
+            renderizaTabelaItens(resposta);
+        }
+        event.target.reset();
+
+    } catch (erro) {
+        alert(erro.message);
+    }
 
 }
 
 async function submitFormAlteraDeleta(event) {
     event.preventDefault();
-    const dados = Object.fromEntries(new FormData(event.target).entries());
+    const dadosForm = Object.fromEntries(new FormData(event.target).entries());
+
+    const dados = formataDadosForm(dadosForm);
+
+    const confirmar = confirm("Deseja realizar a ação?");
 
     try {
+
+        if (!confirmar) return alert("Ação cancelada!")
+
         if (flagFormulario === tipo) {
             if (flagAcao === deletar) {
-
+                const resposta = await apiDeletarTipos(dados);
+                alert(JSON.stringify(resposta, null, 2))
             }
 
             if (flagAcao === alterar) {
-
+                const resposta = await apiAlterarTipos(dados);
+                alert(JSON.stringify(resposta, null, 2))
             }
         }
 
         if (flagFormulario === item) {
             if (flagAcao === deletar) {
-
+                const resposta = await apiDeletarItens(dados);
+                alert(JSON.stringify(resposta, null, 2))
             }
 
             if (flagAcao === alterar) {
-
+                const resposta = await apiAlterarItens(dados);
+                alert(JSON.stringify(resposta, null, 2))
             }
         }
-    } catch {
-
+    } catch (erro) {
+        alert(erro.message);
     }
 }
 
+function formataDadosForm(dadosForm) {
+
+    const dadosFormatados = { ...dadosForm };
+
+    if (flagFormulario === tipo) {
+        if (dadosFormatados.id_tipo) {
+            dadosFormatados.id_tipo = parseInt(dadosFormatados.id_tipo)
+        }
+    }
+
+    if (flagFormulario === item) {
+        if (dadosFormatados.id_item) {
+            dadosFormatados.id_item = parseInt(dadosFormatados.id_item)
+        }
+
+        if (dadosFormatados.valor_item) {
+            const dadoLimpo = String(dadosFormatados.valor_item).replace(',', '.');
+            dadosFormatados.valor_item = parseFloat(dadoLimpo)
+        }
+    }
+
+    return dadosFormatados
+}
 
 // Roda os scripts na página
 document.addEventListener("DOMContentLoaded", () => {
