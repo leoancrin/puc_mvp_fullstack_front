@@ -20,6 +20,9 @@ body {
   background-color: #edf6f9;
   text-align: center;
   font-family: "Encode Sans Semi Expanded", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 header {
@@ -31,6 +34,37 @@ header {
   padding: 5px;
   background-color: #83c5be;
   text-align: center;
+}
+
+main {
+  flex: 1;
+}
+
+h1 {
+  font-size: 32px;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  color: #333333;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 button {
@@ -49,6 +83,84 @@ button:hover {
   border: 2px solid #92140c;
 }
 
+form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+
+label {
+  font-weight: bold;
+}
+
+#formularios {
+  display: bl;
+  align-items: center;
+  padding: 5px;
+}
+
+#formulario_tipo_item {
+  display: inline;
+  padding: 5px;
+  align-items: center;
+}
+
+#formulario_item_colecionavel {
+  display: inline;
+  align-items: center;
+}
+
+#formulario_itens_por_tipo {
+  display: inline;
+  align-items: center;
+}
+
+#formulario_tipo_item_altera_deleta {
+  display: inline;
+  align-items: center;
+}
+
+#formulario_item_colecionavel_altera_deleta {
+  display: inline;
+  align-items: center;
+}
+
+section {
+  display: grid;
+  place-items: center;
+  /* Centraliza horizontal e verticalmente de uma só vez */
+  margin: 10px;
+}
+
+table {
+  margin: 10 auto;
+}
+
+table,
+th,
+td,
+tr {
+  border: 2px solid;
+  border-color: #006d77;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 5px;
+}
+
+th {
+  font-weight: bold;
+}
+
 footer {
   width: 800px;
   margin-left: auto;
@@ -63,7 +175,7 @@ footer h3 {
 }
 
 footer address {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 footer address a,
@@ -75,4 +187,5 @@ footer address a:active {
   font-style: normal;
   text-decoration: none;
   color: #F5F5F5;
+  cursor: pointer;
 }
